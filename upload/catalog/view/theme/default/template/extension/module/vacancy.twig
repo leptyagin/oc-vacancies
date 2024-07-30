@@ -1,0 +1,36 @@
+
+{{ header }}
+
+<div class="container">
+    <h1>
+        join us!
+    </h1>
+        
+    <div class="row">
+        {% if vacancies %}
+            {% for vacancy in vacancies %}
+                <div class="product-layout product-grid col-lg-6 col-md-6 col-xs-12">
+                    <div class="product-thumb">
+                        <div>
+                            <div class="caption">
+                                <h4 class="text-center">{{ vacancy.title }}</h4>
+                                
+                                <p>{{ vacancy.description }}</p>
+                                <ul class="list-group">
+                                    {% for requirement in vacancy.requirements %}
+                                        <li class="list-group-item">
+                                            {{ requirement['name'] }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                <button type="button" class="btn btn-primary btn-lg btn-block" style="margin-bottom: 15px;">more</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+{{ footer }}
